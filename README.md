@@ -11,6 +11,7 @@ Bu repo, **Derin Öğrenme** ve **Yapay Zeka** alanındaki farklı sinir ağı m
   - [1. CNN (Convolutional Neural Networks)](#1-cnn---evrişimli-sinir-ağları)
   - [2. RNN (Recurrent Neural Networks)](#2-rnn---tekrarlayan-sinir-ağları)
   - [3. GNN (Graph Neural Networks)](#3-gnn---graf-sinir-ağları)
+  - [4. Transformer](#4-transformer---dikkat-mekanizması)
 - [Kurulum](#-kurulum)
 - [Kullanım](#-kullanım)
 - [Gereksinimler](#-gereksinimler)
@@ -35,8 +36,12 @@ YapayZeka-Ornekleri/
 │   ├── rnn_yazar.py       # Metin üreten RNN
 │   └── requirements.txt
 │
-└── gnn/                    # Graf tabanlı projeler
-    ├── gnn_ornek.py       # Karate Club sınıflandırma
+├── gnn/                    # Graf tabanlı projeler
+│   ├── gnn_ornek.py       # Karate Club sınıflandırma
+│   └── requirements.txt
+│
+└── transformer/            # Dikkat mekanizması projeleri
+    ├── transformer_ornek.py  # Duygu analizi
     └── requirements.txt
 ```
 
@@ -138,6 +143,51 @@ Model, kulüp üyelerini iki gruba ayırarak renkli bir graf gösterir.
 
 ---
 
+### 4. Transformer - Dikkat Mekanizması
+
+Self-Attention mekanizması ile doğal dil işleme ve metin analizi için modern transformer mimarisi.
+
+#### 💬 **Türkçe Duygu Analizi** (`transformer_ornek.py`)
+- **Amaç**: Türkçe metinlerde duygu (sentiment) analizi yapma
+- **Teknoloji**: Hugging Face Transformers (BERT)
+- **Model**: `savasy/bert-base-turkish-sentiment-cased`
+- **Özellikler**:
+  - Türkçe'ye özel eğitilmiş BERT modeli
+  - Pozitif/Negatif duygu sınıflandırması
+  - Güven skoru hesaplama (confidence score)
+  - İnteraktif test modu
+  - Hazır örnek cümlelerle demo
+
+**Nasıl Çalışır?**
+1. Pre-trained Türkçe BERT modeli yüklenir
+2. Verilen cümle, model tarafından analiz edilir
+3. Cümlenin pozitif/negatif olma olasılığı hesaplanır
+4. Sonuç emoji ile birlikte gösterilir 😊/😡
+
+**Kullanım:**
+```bash
+cd transformer
+pip install -r requirements.txt
+python transformer_ornek.py
+```
+
+**Örnek Çıktı:**
+```
+Cümle: Bu ürünü çok sevdim, harika çalışıyor!
+Yorum: POZİTİF 😊 (Eminlik: %99.87)
+
+Cümle: Kargo çok geç geldi ve paket ezilmişti.
+Yorum: NEGATİF 😡 (Eminlik: %98.45)
+```
+
+**Kullanım Alanları:**
+- Sosyal medya analizi
+- Müşteri yorumu izleme
+- Ürün inceleme değerlendirme
+- Chatbot duygu tespiti
+
+---
+
 ## 🛠 Kurulum
 
 ### 1. Repoyu klonlayın
@@ -172,6 +222,10 @@ pip install -r requirements.txt
 # GNN için
 cd gnn
 pip install -r requirements.txt
+
+# Transformer için
+cd transformer
+pip install -r requirements.txt
 ```
 
 ---
@@ -201,6 +255,11 @@ pip install -r requirements.txt
 - networkx
 - matplotlib
 
+**Transformer:**
+- transformers
+- torch
+- sentencepiece
+
 > **Not:** YOLOv8 ilk çalıştırmada model ağırlıklarını otomatik olarak indirecektir (~6MB).
 
 ---
@@ -229,6 +288,7 @@ Bu projeler aşağıdaki kavramları öğrenmek için harika bir başlangıç no
 - **CNN**: Görüntü işleme, nesne tespiti, yüz tanıma
 - **RNN**: Zaman serisi analizi, metin üretimi, doğal dil işleme
 - **GNN**: Graf analizi, sosyal ağ madenciliği, molekül sınıflandırma
+- **Transformer**: Self-attention mekanizması, BERT modeli, duygu analizi, modern NLP
 
 ---
 
